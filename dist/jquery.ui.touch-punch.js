@@ -8,8 +8,7 @@
  *  jquery.ui.widget.js
  *  jquery.ui.mouse.js
  */
-(function ($) {
-
+var TouchPunch = function($) {
   // Detect touch support
   $.support.touch = 'ontouchend' in document;
 
@@ -176,5 +175,13 @@
     // Call the original $.ui.mouse destroy method
     _mouseDestroy.call(self);
   };
+}
 
-})(jQuery);
+if (typeof define === 'function') {
+  // AMD module
+  define(['jquery', 'jquery/ui'], TouchPunch);
+} else {
+  // Global
+  (TouchPunch)(jQuery);
+}
+
